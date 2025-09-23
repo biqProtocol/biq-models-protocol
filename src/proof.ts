@@ -1,5 +1,6 @@
 export interface BiqProof {
   id: string;
+  clientId: string;
   time: number;
   nonce: string;
   userId: string;

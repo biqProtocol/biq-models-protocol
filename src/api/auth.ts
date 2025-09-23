@@ -1,13 +1,3 @@
-import { BiqEvent } from "./event";
-import { BiqPeripheralSignature } from "./proof";
-
-/** base64 encoded nonce */
-export type BiqNonceResponse = string;
-
-export type BiqValidateNonceRequest = BiqPeripheralSignature[];
-
-export type BiqValidateNonceResponse = false | BiqEvent[]
-
 export interface BiqLoginRequest {
   apiSecret: string;
   userId: string;

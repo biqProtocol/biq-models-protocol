@@ -1,5 +1,7 @@
 export interface BiqBeacon {
   id: string;
+  clientId: string;
+  organizerId: string;
   name: string;
   owner: string;
   type: BiqBeaconType;

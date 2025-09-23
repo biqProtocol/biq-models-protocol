@@ -1,0 +1,31 @@
+export enum BiqSocial {
+  Email = 'email',
+  Website = 'website',
+  Twitter = 'twitter',
+  Facebook = 'facebook',
+  LinkedIn = 'linkedin',
+  Instagram = 'instagram',
+  GitHub = 'github',
+  YouTube = 'youtube',
+  TikTok = 'tiktok',
+  Reddit = 'reddit',
+  Discord = 'discord',
+  Telegram = 'telegram',
+  Matrica = 'matrica',
+}
+
+export const BiqSocialNames: { [key in BiqSocial]: string } = {
+  [BiqSocial.Email]: 'Email',
+  [BiqSocial.Website]: 'Website',
+  [BiqSocial.Twitter]: 'Twitter',
+  [BiqSocial.Facebook]: 'Facebook',
+  [BiqSocial.LinkedIn]: 'LinkedIn',
+  [BiqSocial.Instagram]: 'Instagram',
+  [BiqSocial.GitHub]: 'GitHub',
+  [BiqSocial.YouTube]: 'YouTube',
+  [BiqSocial.TikTok]: 'TikTok',
+  [BiqSocial.Reddit]: 'Reddit',
+  [BiqSocial.Discord]: 'Discord',
+  [BiqSocial.Telegram]: 'Telegram',
+  [BiqSocial.Matrica]: 'Matrica',
+};
