@@ -1,13 +1,15 @@
 export interface BiqBeacon {
   id: string;
   clientId: string;
-  organizerId: string;
+  organizerId?: string;
   name: string;
   owner: string;
   type: BiqBeaconType;
   position?: BiqBeaconPosition;
   assignment?: BiqBeaconAssignment[];
-  disabled?: boolean;
+  disabled: boolean;
+  createdAt: number;
+  updatedAt: number;
 }
 
 export enum BiqBeaconType {
