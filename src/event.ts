@@ -172,7 +172,7 @@ export enum BiqEventUserParticipationStatus {
 export interface BiqEventUserParticipation {
   id: string;
   clientId: string;
-  organizerId: string;
+  organizerId: string[];
   userId: string;
   eventId: string;
   status: BiqEventUserParticipationStatus;

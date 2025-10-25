@@ -10,11 +10,13 @@ export interface BiqWebhook {
   headers?: { [key: string]: string };
   createdAt: number;
   updatedAt: number;
-  tested?: boolean;
+  tested: boolean;
+  enabled: boolean;
 }
 
 export enum BiqWebhookScope {
   TestAvailability = "test_availability",
+  EventAttendance = "event_attendance",
   RewardTriggered = "reward_triggered",
   EventApplication = "event_application",
   GatedEventApplication = "gated_event_application",
@@ -23,6 +25,7 @@ export enum BiqWebhookScope {
 
 export type BiqWebhookRequest =
   BiqWebhookRequestTestAvailability
+  | BiqWebhookRequestEventAttendance
   | BiqWebhookRequestRewardTriggered
   | BiqWebhookRequestEventApplication
   | BiqWebhookRequestGatedEventApplication
@@ -30,6 +33,7 @@ export type BiqWebhookRequest =
 
 export type BiqWebhookResponse =
   BiqWebhookResponseTestAvailability
+  | BiqWebhookResponseEventAttendance
   | BiqWebhookResponseRewardTriggered
   | BiqWebhookResponseEventApplication
   | BiqWebhookResponseGatedEventApplication
@@ -46,12 +50,27 @@ export type BiqWebhookResponseTestAvailability = {
   pong: true;
 }
 
+/** Request when a user attends an event */
+export type BiqWebhookRequestEventAttendance = {
+  scope: BiqWebhookScope.EventAttendance;
+  userId: string;
+  eventId: string;
+  time: number;
+}
+
+export type BiqWebhookResponseEventAttendance = {
+  scope: BiqWebhookScope.EventAttendance;
+  acknowledged: true;
+}
+
 /** Request when a reward is triggered for a user */
 export type BiqWebhookRequestRewardTriggered = {
   scope: BiqWebhookScope.RewardTriggered;
   userId: string;
   eventId: string;
   rewardId: string;
+  rewardConditionId: string;
+  time: number;
 }
 
 export type BiqWebhookResponseRewardTriggered = {

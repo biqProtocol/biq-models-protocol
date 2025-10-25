@@ -1,7 +1,7 @@
 export interface BiqRewardCondition {
   id: string;
   clientId: string;
-  organizerId: string;
+  organizerId?: string;
   event: string;
   location?: string;
   area?: string;
