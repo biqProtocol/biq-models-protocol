@@ -8,10 +8,17 @@ export interface BiqRewardCondition {
   recurrence: BiqRewardRecurrence;
   /** Minutes of participation */
   requiredParticipation: number;
+  /** For recurring rewards, cooldown period in minutes */
+  cooldown?: number;
+  /** This reward is issued for each unique beacon */
+  forUniqueBeacon?: boolean;
   validFrom?: number;
   validUntil?: number;
   /** Require previously obtained rewards */
   requiredRewards?: BiqRequiredRewards;
+  createdAt: number;
+  updatedAt: number;
+  deletedAt: number | null;
 }
 
 export enum BiqRewardRecurrence {
@@ -33,7 +40,8 @@ export interface BiqRequiredRewards {
 
 export interface BiqReward {
   id: string;
-  condition: BiqRewardCondition;
+  condition: BiqRewardCondition | string;
   user: string;
+  beacon: string;
   createdAt: number;
 }
