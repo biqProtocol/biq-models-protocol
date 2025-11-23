@@ -7,3 +7,4 @@ export * from "./organizer";
 export * from "./client";
 export * from "./socials";
 export * from "./webhook";
+export * from "./notifications";

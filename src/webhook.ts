@@ -21,6 +21,7 @@ export enum BiqWebhookScope {
   EventApplication = "event_application",
   GatedEventApplication = "gated_event_application",
   UserProfileRequest = "user_profile_request",
+  SilentNotification = "silent_notification",
 }
 
 export type BiqWebhookRequest =
@@ -29,7 +30,8 @@ export type BiqWebhookRequest =
   | BiqWebhookRequestRewardTriggered
   | BiqWebhookRequestEventApplication
   | BiqWebhookRequestGatedEventApplication
-  | BiqWebhookRequestUserProfile;
+  | BiqWebhookRequestUserProfile
+  | BiqWebhookRequestSilentNotification;
 
 export type BiqWebhookResponse =
   BiqWebhookResponseTestAvailability
@@ -37,7 +39,8 @@ export type BiqWebhookResponse =
   | BiqWebhookResponseRewardTriggered
   | BiqWebhookResponseEventApplication
   | BiqWebhookResponseGatedEventApplication
-  | BiqWebhookResponseUserProfile;
+  | BiqWebhookResponseUserProfile
+  | BiqWebhookResponseSilentNotification;
 
 /** Request to test the webhook functionality */
 export type BiqWebhookRequestTestAvailability = {
@@ -115,4 +118,15 @@ export type BiqWebhookResponseUserProfile = {
   name: string;
   picture: string;
   extraInfo?: BiqRequiredInfo[];
+}
+
+/** Request to send a silent notification to iOS users */
+export type BiqWebhookRequestSilentNotification = {
+  scope: BiqWebhookScope.SilentNotification;
+  users: string[];
+}
+
+export type BiqWebhookResponseSilentNotification = {
+  scope: BiqWebhookScope.SilentNotification;
+  acknowledged: true;
 }
